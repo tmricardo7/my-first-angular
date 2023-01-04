@@ -1,4 +1,15 @@
-<h3>My app</h3>
-<button (click)="showData()">Display Details</button>
-<p *ngIf="showingData">My secret data</p>
-<p *ngFor="let log of logs" [ngStyle]="{'backgroundColor':(counter > 5) ? 'blue':null}" [ngClass]="{'myClass': (counter > 5)}">{{log}}</p>
+<app-header></app-header>
+<div class="container">
+    <h3>Active Users</h3>
+    <ng-container *ngFor="let user of users; let i = index">
+        <app-user *ngIf="user.isActive" [id]="i" [name]="user.name" [isActive]="user.isActive"></app-user>
+    </ng-container>
+
+    <h3>Inactive Users</h3>
+    <ng-container *ngFor="let user of users; let i = index">
+        <app-user *ngIf="!user.isActive" [id]="i" [name]="user.name" [isActive]="user.isActive"></app-user>
+    </ng-container>
+
+    Counter Activating: {{counterActivating}}
+    Counter Deactivating: {{counterDeactivating}}
+</div>

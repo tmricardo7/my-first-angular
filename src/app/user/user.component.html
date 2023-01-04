@@ -1,0 +1,6 @@
+<div>
+    <span>{{name}}</span>
+    <button (click)="changeStatus()" *ngIf="isActive">Deactivate</button>
+    <button (click)="changeStatus()" *ngIf="!isActive">Activate</button>
+</div>
+

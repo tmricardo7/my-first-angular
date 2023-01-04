@@ -7,7 +7,11 @@ import { ListComponent } from './recipe/list.component';
 import { ListItemComponent } from './recipe/list-item.component';
 import { DetailComponent } from './recipe/detail.component';
 import { ListEditComponent } from './shopping/list-edit.component';
-import { HeaderComponent } from './header/header.component'
+import { HeaderComponent } from './header/header.component';
+import { GameControlComponent } from './game-control/game-control.component';
+import { EvenComponent } from './even/even.component';
+import { OddComponent } from './odd/odd.component';
+import { UserComponent } from './user/user.component'
 
 @NgModule({
   declarations: [
@@ -17,6 +21,10 @@ import { HeaderComponent } from './header/header.component'
     DetailComponent,
     ListEditComponent,
     HeaderComponent,
+    GameControlComponent,
+    EvenComponent,
+    OddComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
