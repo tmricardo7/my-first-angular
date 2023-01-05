@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListComponent } from './recipe/list.component';
 import { ListItemComponent } from './recipe/list-item.component';
 import { DetailComponent } from './recipe/detail.component';
@@ -29,6 +29,7 @@ import { UserComponent } from './user/user.component'
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

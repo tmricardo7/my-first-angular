@@ -1,15 +1,58 @@
 <app-header></app-header>
 <div class="container">
-    <h3>Active Users</h3>
-    <ng-container *ngFor="let user of users; let i = index">
-        <app-user *ngIf="user.isActive" [id]="i" [name]="user.name" [isActive]="user.isActive"></app-user>
-    </ng-container>
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Email</label>
+            <input name="email" class="form-control" type="email" required email #email="ngModel" ngModel/>
+            <span class="help-block" *ngIf="!email.valid && email.dirty" >Invalid Email!</span>
+        </div>
 
-    <h3>Inactive Users</h3>
-    <ng-container *ngFor="let user of users; let i = index">
-        <app-user *ngIf="!user.isActive" [id]="i" [name]="user.name" [isActive]="user.isActive"></app-user>
-    </ng-container>
+        <div class="form-group">
+            <label>Type</label>
+            <select class="form-control" name="type" [ngModel]="defaultType" >
+                <option value="basic">Basic</option>
+                <option value="advanced">Advanced</option>
+                <option value="pro">Pro</option>
+            </select>
+        </div>
 
-    Counter Activating: {{counterActivating}}
-    Counter Deactivating: {{counterDeactivating}}
+        <div class="form-group">
+            <label>Password</label>
+            <input name="password" class="form-control" type="password" required ngModel #password="ngModel"/>
+            <span class="help-block" *ngIf="!password.value && password.touched" >Invalid Password!</span>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit!</button>
+            <span class="help-block" *ngIf="!f.valid && f.dirty" >Invalid Data!</span>
+        </div>
+    </form>
+
+    <form (ngSubmit)="onSubmit2()" [formGroup]="myForm2">
+        <div class="form-group">
+            <label>Email</label>
+            <input name="email" class="form-control" type="email" formControlName="email"/>
+            <span class="help-block" *ngIf="!myForm2.get('email').valid && myForm2.get('email').dirty">Invalid Email!</span>
+        </div>
+
+        <div class="form-group">
+            <label>Project Name</label>
+            <input name="project" class="form-control" type="text" formControlName="project"/>
+            <span class="help-block" *ngIf="!myForm2.get('project').valid && myForm2.get('project').dirty">Invalid Project!</span>
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <select class="form-control" name="status" formControlName="status">
+                <option value="stable">Stable</option>
+                <option value="critical">Critical</option>
+                <option value="finished">Finished</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit!</button>
+            <span class="help-block">Invalid Data!</span>
+        </div>
+    </form>
 </div>
